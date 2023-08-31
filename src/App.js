@@ -1,15 +1,15 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
-import Header from "./components/header/header-component.jsx"
+// import Header from "./components/header/header-component.jsx"
 import HomePage from "./pages/homepage/homepage.component.jsx"
 import { createGlobalStyle } from "styled-components"
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      {/* <Header /> */}
       <HomePage />
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
     </ThemeProvider>
   )
 }

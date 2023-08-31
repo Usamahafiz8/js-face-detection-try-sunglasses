@@ -12,7 +12,7 @@ import Loading from "../utils/loading.component"
 const OverlayList = ({ overlayItems, onOverlayItemClick, loading }) => {
   return (
     <OverlaysWrapper>
-      <OverlayHeading>Select Sunglasses</OverlayHeading>
+      {/* <OverlayHeading>Select Sunglasses</OverlayHeading> */}
       <OverlaysContainer>
         {overlayItems.map(({ id, overlayFile }) => (
           <OverlayItem

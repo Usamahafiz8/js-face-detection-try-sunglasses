@@ -102,9 +102,8 @@ class HomePage extends Component {
   render() {
     const { personalPhoto, overlayImg, overlayValues, loading } = this.state;
     return (
-      <MainContainer>
-        <>
-          <div
+      <>
+        <div
           style={{
             display: "flex",
             width: "100%",
@@ -134,30 +133,29 @@ class HomePage extends Component {
                 gap: "16px",
               }}
             >
-                 <ImagesOuterContainer>
-          <ImagesContainer>
-            {personalPhoto ? (
-              <PersonalPhoto
-                personalPhoto={personalPhoto}
-                resetForNewPhoto={this.resetForNewPhoto}
-                className="target-image"
-                initiateFaceAnalysis={this.initiateFaceAnalysis}
-                loading={loading}
-              />
-            ) : (
-              <UploadPersonalPhoto
+              {personalPhoto ? (
+                // this will show the uploaded photo
+                <PersonalPhoto
+                  personalPhoto={personalPhoto}
+                  resetForNewPhoto={this.resetForNewPhoto}
+                  className="target-image"
+                  initiateFaceAnalysis={this.initiateFaceAnalysis}
+                  overlayItems={shortenOverlayData(overlayData)}
+                  loading={loading}
+                />
+              ) : (
+                // uploading photo
+                <UploadPersonalPhoto
                 setPersonalPhoto={this.setPersonalPhoto}
-                presetPhotos={presetPhotos}
-              />
-            )}
-            {personalPhoto && overlayImg && (
-              <OverlayImage
-                overlayImg={overlayImg}
-                overlayValues={overlayValues}
-              />
-            )}
-          </ImagesContainer>
-        </ImagesOuterContainer>
+                  presetPhotos={presetPhotos}
+                  />
+              )}
+              {personalPhoto && overlayImg && (
+                <OverlayImage
+                  overlayImg={overlayImg}
+                  overlayValues={overlayValues}
+                  />
+              )}
             </div>
                   <div>
                     <OverlayList
@@ -169,39 +167,10 @@ class HomePage extends Component {
           </div>
         </div>
       </>
-        {/* <ImagesOuterContainer>
-          <ImagesContainer>
-            {personalPhoto ? (
-              <PersonalPhoto
-                personalPhoto={personalPhoto}
-                resetForNewPhoto={this.resetForNewPhoto}
-                className="target-image"
-                initiateFaceAnalysis={this.initiateFaceAnalysis}
-                loading={loading}
-              />
-            ) : (
-              <UploadPersonalPhoto
-                setPersonalPhoto={this.setPersonalPhoto}
-                presetPhotos={presetPhotos}
-              />
-            )}
-            {personalPhoto && overlayImg && (
-              <OverlayImage
-                overlayImg={overlayImg}
-                overlayValues={overlayValues}
-              />
-            )}
-          </ImagesContainer>
-        </ImagesOuterContainer>
-
-        <OverlayList
-          loading={loading}
-          overlayItems={shortenOverlayData(overlayData)}
-          onOverlayItemClick={this.overlayItemClickHandler}
-        /> */}
-      </MainContainer>
     );
   }
 }
+
+//<FacePoints facePoints={facePoints} overlayValues={overlayValues} />
 
 export default HomePage;

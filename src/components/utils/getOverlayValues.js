@@ -36,7 +36,7 @@ export function getOverlayValues(landmarks, image, overlay) {
   const overlay_y_offset = overlay.cp_offsets.cp_y * overlayScale
   const topOffset = center_point_y - overlay_y_offset
 
-  console.log(overlay)
+  console.log('stest',overlay)
 
   return {
     overlayWidth: faceWidth * scale,
